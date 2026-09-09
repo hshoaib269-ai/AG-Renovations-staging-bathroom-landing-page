@@ -363,6 +363,58 @@
       }
     }
 
+    /* ---- Mobile nav repair -------------------------------------------
+       At 390px the brand name (21px) plus "EST. LONDON 2014" (18px with 2px
+       tracking) plus the CTA (21px) measured wider than the viewport, so the
+       button escaped the 70px bar. Everything below scales the bar down and
+       lets it grow in height rather than overflow. */
+    @media (max-width: 767px) {
+      #nav>div {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      #nav>div>div {
+        height: auto !important;
+        min-height: 58px;
+        padding: 9px 0;
+        gap: 10px;
+      }
+
+      #nav a[href="#"] {
+        gap: 9px !important;
+        min-width: 0;
+      }
+
+      #nav a[href="#"] img {
+        height: 32px !important;
+      }
+
+      #nav a[href="#"]>div>div:first-child {
+        font-size: 15px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap;
+      }
+
+      #nav a[href="#"]>div>div:last-child {
+        font-size: 9.5px !important;
+        letter-spacing: 1px !important;
+        white-space: nowrap;
+      }
+
+      #nav a[href="#enquiry"] {
+        font-size: 14px !important;
+        padding: 10px 14px !important;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* Hero clears the shorter bar */
+      #ag-hero {
+        padding-top: 86px !important;
+      }
+    }
+
     /* Very narrow phones */
     @media (max-width: 380px) {
 
@@ -387,9 +439,20 @@
       }
 
       #nav a[href="#enquiry"] {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-        font-size: 17px !important;
+        padding: 9px 12px !important;
+        font-size: 13px !important;
+      }
+
+      #nav a[href="#"]>div>div:first-child {
+        font-size: 14px !important;
+      }
+
+      #nav a[href="#"]>div>div:last-child {
+        font-size: 9px !important;
+      }
+
+      #nav a[href="#"] img {
+        height: 28px !important;
       }
     }
   </style>
@@ -481,11 +544,14 @@
       gap: 9px;
       background: var(--h-tint);
       color: var(--h-green-dark);
-      font-size: 17px;
+      /* 17px + 1.5px tracking made this 48-character line overflow the
+         column and wrap mid-phrase inside the pill. */
+      font-size: 15px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 7px 16px;
+      letter-spacing: 0.8px;
+      line-height: 1.45;
+      padding: 8px 17px;
       border-radius: 999px;
       margin-bottom: 22px;
     }
@@ -654,17 +720,45 @@
       position: relative;
     }
 
+    /* The disc was 78% of the column and sat entirely behind a photo that
+       fills 100% of it, so almost none of it was visible. Now it is wider than
+       the photo and reads as a halo, with a thin ring for depth. */
     #ag-hero .h-glow {
       position: absolute;
       z-index: 0;
-      top: 50%;
-      left: 58%;
-      width: 78%;
+      top: 47%;
+      left: 56%;
+      width: 124%;
       aspect-ratio: 1;
       transform: translate(-50%, -50%);
-      background: var(--h-tint);
+      background: radial-gradient(circle,
+          #d6ebe0 0%,
+          #e4f2ea 52%,
+          rgba(228, 242, 234, 0.55) 72%,
+          rgba(228, 242, 234, 0) 78%);
       border-radius: 50%;
       pointer-events: none;
+    }
+
+    #ag-hero .h-ring {
+      position: absolute;
+      z-index: 0;
+      top: 47%;
+      left: 56%;
+      width: 108%;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(45, 106, 79, 0.16);
+      pointer-events: none;
+    }
+
+    #ag-hero .h-ring::after {
+      content: '';
+      position: absolute;
+      inset: 7%;
+      border-radius: 50%;
+      border: 1px solid rgba(45, 106, 79, 0.09);
     }
 
     #ag-hero .h-photo {
@@ -775,7 +869,7 @@
 
     #ag-hero .h-scribble {
       position: absolute;
-      bottom: -13%;
+      bottom: -18%;
       right: -1%;
       z-index: 2;
       font-style: italic;
@@ -847,7 +941,7 @@
     <div class="h-inner">
 
       <div class="h-content">
-        <span class="h-kicker">London's Trusted Bathroom Specialists &middot; Est. 2014</span>
+        <span class="h-kicker">London Bathroom Specialists &middot; Est. 2014</span>
 
         <h1 class="h-title">
           Your Bathroom.
@@ -925,8 +1019,8 @@
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
                 </svg>
               </div>
-              <strong>5.0 Google &middot; 4.7 Trustpilot</strong>
-              <span>92 verified reviews</span>
+              <strong>5.0 on Google</strong>
+              <span>51 five-star reviews</span>
             </div>
           </div>
 
@@ -967,6 +1061,7 @@
 
       <div class="h-media">
         <div class="h-glow" aria-hidden="true"></div>
+        <div class="h-ring" aria-hidden="true"></div>
 
         <div class="h-photo">
           <img src="images/new-bathroom/full/Project-01-bathroom-01-image-01.webp"
@@ -1137,7 +1232,7 @@
     <div class="max-w-[1120px] mx-auto px-6">
       <div class="text-center mb-16">
         <span
-          class="inline-block px-4 py-1.5 rounded-full text-[18px] font-bold uppercase tracking-[1.5px] border bg-[rgba(149,213,178,0.15)] border-[rgba(149,213,178,0.2)] text-[#95d5b2]">Our
+          class="inline-block px-4 py-1.5 rounded-full text-[18px] font-bold uppercase tracking-[1.5px] border bg-[rgba(149,213,178,0.15)] border-[rgba(149,213,178,0.35)] text-white">Our
           Packages</span>
         <h2 class="font-bold leading-tight tracking-tight mt-5 mb-4 text-white"
           style="font-size:clamp(34px, 4.5vw, 54px)">Choose Your Bathroom Package</h2>
@@ -1153,7 +1248,7 @@
       <div class="grid md:grid-cols-2 gap-7">
         <!-- Basic -->
         <div class="bg-white/5 border border-white/10 rounded-2xl p-9 relative overflow-hidden">
-          <span class="block text-[18px] font-bold uppercase tracking-[2px] text-[#95d5b2] mb-3">Basic Package</span>
+          <span class="block text-[18px] font-bold uppercase tracking-[2px] text-white/70 mb-3">Basic Package</span>
           <h3 class="text-[28px] font-semibold text-white mb-2">Complete Bathroom Installation</h3>
           <p class="text-[22px] text-white/50 mb-7 leading-relaxed">Everything needed for a full, professional bathroom
             refurbishment from strip-out to final clean.</p>
@@ -1193,7 +1288,7 @@
           <div id="pkg-badge"
             class="absolute top-5 right-5 bg-white text-[#22523d] text-[18px] font-bold uppercase tracking-[1.5px] px-3 py-1.5 rounded-full">
             Most Popular</div>
-          <span class="block text-[18px] font-bold uppercase tracking-[2px] text-[#95d5b2] mb-3">Premium Package</span>
+          <span class="block text-[18px] font-bold uppercase tracking-[2px] text-white/70 mb-3">Premium Package</span>
           <h3 class="text-[28px] font-semibold text-white mb-2">Premium Bathroom Installation</h3>
           <p class="text-[22px] text-white/50 mb-7 leading-relaxed">Everything in the Basic Package, plus premium
             upgrades that transform a functional bathroom into a standout space.</p>
@@ -1202,16 +1297,17 @@
                 class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✓</span>Everything included in the Basic Package
             </li>
             <li class="my-5 border-t border-white/10"></li>
-            <li class="flex items-start gap-2.5 text-[22px] text-[#95d5b2] font-semibold"><span
-                class="font-bold flex-shrink-0 mt-0.5">✦</span>Walk-in shower / wet room system</li>
-            <li class="flex items-start gap-2.5 text-[22px] text-[#95d5b2] font-semibold"><span
-                class="font-bold flex-shrink-0 mt-0.5">✦</span>Underfloor heating (inc. Warmup system)</li>
-            <li class="flex items-start gap-2.5 text-[22px] text-[#95d5b2] font-semibold"><span
-                class="font-bold flex-shrink-0 mt-0.5">✦</span>Built-in shower niche</li>
-            <li class="flex items-start gap-2.5 text-[22px] text-[#95d5b2] font-semibold"><span
-                class="font-bold flex-shrink-0 mt-0.5">✦</span>LED niche lighting</li>
-            <li class="flex items-start gap-2.5 text-[22px] text-[#95d5b2] font-semibold"><span
-                class="font-bold flex-shrink-0 mt-0.5">✦</span>Japanese-type toilet</li>
+            <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
+                class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>Walk-in shower / wet room system</li>
+            <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
+                class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>Underfloor heating (inc. Warmup system)
+            </li>
+            <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
+                class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>Built-in shower niche</li>
+            <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
+                class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>LED niche lighting</li>
+            <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
+                class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>Japanese-type toilet</li>
           </ul>
         </div>
       </div>
@@ -1240,6 +1336,7 @@
       --gal-green: #95d5b2;
       font-family: 'DM Sans', sans-serif;
       background-color: #24483a;
+      background-image: radial-gradient(ellipse 90% 60% at 50% 0%, rgba(255, 255, 255, 0.06), transparent 70%);
       padding: 80px 24px;
       width: 100%;
       overflow: hidden;
@@ -1269,9 +1366,9 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: var(--gal-green);
-      background: rgba(149, 213, 178, 0.15);
-      border: 1px solid rgba(149, 213, 178, 0.2);
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.22);
     }
 
     #gal-section .gal-title {
@@ -1839,6 +1936,7 @@
       --tsm-green: #95d5b2;
       font-family: 'DM Sans', sans-serif;
       background-color: #285141;
+      background-image: radial-gradient(ellipse 90% 60% at 50% 0%, rgba(255, 255, 255, 0.05), transparent 70%);
       padding: 80px 24px;
       width: 100%;
       overflow: hidden;
@@ -1868,9 +1966,9 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: var(--tsm-green);
-      background: rgba(149, 213, 178, 0.15);
-      border: 1px solid rgba(149, 213, 178, 0.2);
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.22);
     }
 
     #tsm-section .tsm-title {
@@ -3048,12 +3146,12 @@
             class="w-full h-full object-cover">
           <div class="absolute bottom-6 left-6 bg-[rgba(18,39,31,0.9)] border border-white/10 rounded-xl p-4">
             <strong class="block text-[24px] font-bold text-white">Andrius Grisanovas</strong>
-            <span class="text-[20px] text-[#95d5b2] uppercase tracking-wide">Managing Director &amp; Founder</span>
+            <span class="text-[20px] text-white/75 uppercase tracking-wide">Managing Director &amp; Founder</span>
           </div>
         </div>
         <div>
           <span
-            class="inline-block px-4 py-1.5 rounded-full text-[18px] font-bold uppercase tracking-[1.5px] border bg-[rgba(149,213,178,0.15)] border-[rgba(149,213,178,0.2)] text-[#95d5b2]">The
+            class="inline-block px-4 py-1.5 rounded-full text-[18px] font-bold uppercase tracking-[1.5px] border bg-[rgba(149,213,178,0.15)] border-[rgba(149,213,178,0.35)] text-white">The
             Man Behind A&amp;G</span>
           <h2 class="font-bold leading-tight tracking-tight mt-5 mb-4 text-white"
             style="font-size:clamp(34px, 4.5vw, 54px)">Built From the Ground Up. On Craft Alone.</h2>
@@ -3075,14 +3173,14 @@
             deliver.&rdquo;</blockquote>
           <div class="grid grid-cols-3 gap-4 mt-8">
             <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center"><span
-                class="block text-[44px] font-semibold text-[#95d5b2] leading-none">2014</span><span
-                class="block text-[18px] text-white/40 uppercase tracking-wide mt-1.5">Est. London</span></div>
+                class="block text-[44px] font-semibold text-white leading-none">2014</span><span
+                class="block text-[18px] text-white/60 uppercase tracking-wide mt-1.5">Est. London</span></div>
             <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center"><span
-                class="block text-[44px] font-semibold text-[#95d5b2] leading-none">60+</span><span
-                class="block text-[18px] text-white/40 uppercase tracking-wide mt-1.5">Projects / yr</span></div>
+                class="block text-[44px] font-semibold text-white leading-none">60+</span><span
+                class="block text-[18px] text-white/60 uppercase tracking-wide mt-1.5">Projects / yr</span></div>
             <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center"><span
-                class="block text-[44px] font-semibold text-[#95d5b2] leading-none">14</span><span
-                class="block text-[18px] text-white/40 uppercase tracking-wide mt-1.5">Team Members</span></div>
+                class="block text-[44px] font-semibold text-white leading-none">14</span><span
+                class="block text-[18px] text-white/60 uppercase tracking-wide mt-1.5">Team Members</span></div>
           </div>
         </div>
       </div>
@@ -3128,16 +3226,16 @@
               insurance</li>
           </ul>
           <div class="bg-[#24483a] rounded-xl p-6">
-            <p class="text-white/40 text-[18px] uppercase tracking-wide mb-2 font-bold">Or speak to us directly</p>
+            <p class="text-white/60 text-[18px] uppercase tracking-wide mb-2 font-bold">Or speak to us directly</p>
             <a href="tel:02036218527" onclick="return gtag_report_conversion('tel:02036218527');"
-              class="flex items-center gap-2.5 text-[#2d6a4f] text-[34px] font-bold">
+              class="flex items-center gap-2.5 text-white text-[34px] font-bold">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
               </svg>
               020 3621 8527
             </a>
-            <div class="text-white/40 text-[21px] mt-2">Enquiries: Mon &ndash; Sat &middot; <span
+            <div class="text-white/60 text-[21px] mt-2">Enquiries: Mon &ndash; Sat &middot; <span
                 class="text-white/70 font-semibold">8AM &ndash; 7PM</span><br>Works carried out: Mon &ndash; Sat
               &middot; <span class="text-white/70 font-semibold">8AM &ndash; 5PM</span></div>
           </div>
@@ -3556,8 +3654,8 @@
     <div class="max-w-[1120px] mx-auto px-6 relative z-10">
       <h2 class="text-white max-w-[660px] mx-auto mb-4 font-normal italic" style="font-size:clamp(40px, 5vw, 64px)">
         &ldquo;Do It Once. Do It Right.&rdquo;</h2>
-      <p class="text-white/55 max-w-[520px] mx-auto mb-11 text-[27px]">Over 90 verified reviews across Google and
-        Trustpilot. A decade of London
+      <p class="text-white/55 max-w-[520px] mx-auto mb-11 text-[27px]">51 five-star reviews on Google. A decade of
+        London
         renovations. A team that genuinely cares about the result, and a guarantee to prove it.</p>
       <div class="flex justify-center gap-4 flex-wrap mb-9">
         <a href="#enquiry"

@@ -148,7 +148,7 @@
       "name": "Do you use subcontractors or your own team?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our installers are in-house specialists who work exclusively for A&G Renovations, not subcontracted strangers. They arrive on time, work a full day between 8AM and 5PM, and follow A&G's standards on every project. For specialist trades such as gas and electrical work, we work with vetted, certified partners (Gas Safe registered engineers and NICEIC certified electricians) who are familiar with how we operate."
+        "text": "Both. Our bathroom fitters are employed by A&G and work on our projects only, so the same faces are in your home from strip-out to handover. Specialist trades are different: electrical, plumbing and gas work is carried out by certified partners we work with regularly, Gas Safe registered engineers and NICEIC certified electricians. We coordinate them, so you deal with one point of contact throughout rather than booking and chasing trades yourself."
       }
     },
     {
@@ -538,6 +538,11 @@
       align-items: center;
     }
 
+    #ag-hero .h-content {
+      position: relative;
+      z-index: 2;
+    }
+
     #ag-hero .h-kicker {
       display: inline-flex;
       align-items: center;
@@ -889,6 +894,20 @@
         gap: 36px;
       }
 
+      /* Keep the halo tight to the photo once stacked, or it bleeds into
+         the copy below. */
+      #ag-hero .h-glow {
+        width: 104%;
+        top: 50%;
+        left: 50%;
+      }
+
+      #ag-hero .h-ring {
+        width: 96%;
+        top: 50%;
+        left: 50%;
+      }
+
       #ag-hero .h-media {
         order: -1;
       }
@@ -1199,10 +1218,11 @@
           class="bg-[#faf8f4] rounded-2xl p-10 relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(0,0,0,0.07)]">
           <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-[#2d6a4f]"></div>
           <div class="text-[72px] font-semibold leading-none mb-4 tracking-tight opacity-[0.15] text-[#2d6a4f]">01</div>
-          <h3 class="text-[25px] font-semibold mb-3 text-[#1c2b26]">In-House Specialists Only</h3>
-          <p class="text-[22px] text-[#47524d] leading-relaxed">Our fitters work exclusively for A&amp;G, not
-            subcontracted strangers. They arrive on time, work a full day between 8AM and 5PM, and treat your home with
-            the same respect they'd want in their own. Same faces, same standards, every day.</p>
+          <h3 class="text-[25px] font-semibold mb-3 text-[#1c2b26]">An In-House Fitting Team</h3>
+          <p class="text-[22px] text-[#47524d] leading-relaxed">Our bathroom fitters are employed by A&amp;G and work
+            on our projects only. They arrive on time, work a full day between 8AM and 5PM, and treat your home with
+            the same respect they'd want in their own. Specialist electrical, plumbing and gas work is carried out by
+            certified partners we use on every project, coordinated by us so you never have to chase a trade.</p>
         </div>
         <div
           class="bg-[#faf8f4] rounded-2xl p-10 relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(0,0,0,0.07)]">
@@ -3606,10 +3626,11 @@
               class="text-[#2d6a4f] text-[26px] font-light flex-shrink-0 ml-4 transition-transform group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 pb-6 text-[24px] text-[#47524d] leading-relaxed border-t border-[#e0ded4] pt-4">
-            Our installers are in-house specialists who work exclusively for A&G Renovations, not subcontracted
-            strangers. They arrive on time, work a full day between 8AM and 5PM, and follow A&G's standards on every
-            project. For specialist trades such as gas and electrical work, we work with vetted, certified partners (Gas
-            Safe registered engineers and NICEIC certified electricians) who are familiar with how we operate.
+            Both. Our bathroom fitters are employed by A&G and work on our projects only, so the same faces are in
+            your home from strip-out to handover. Specialist trades are different: electrical, plumbing and gas work is
+            carried out by certified partners we work with regularly, Gas Safe registered engineers and NICEIC
+            certified electricians. We coordinate them, so you deal with one point of contact throughout rather than
+            booking and chasing trades yourself.
           </div>
         </details>
 

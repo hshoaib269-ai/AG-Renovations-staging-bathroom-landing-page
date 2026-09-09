@@ -156,7 +156,7 @@
       "name": "What areas of London do you cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We work across all areas of London and the surrounding regions. Our team is based in East London and regularly completes projects across Central, North, South, East and West London. If you are unsure whether we cover your area, call us on 020 3621 8527 or fill in the enquiry form and we will confirm."
+        "text": "We cover Greater London inside the M25. Recent bathrooms include Marylebone and Little Venice in the west, Canning Town and Poplar in the east, Walworth and Myatt's Fields in the south, Aldersbrook in the north east, plus Hounslow and Croydon. If you are unsure whether we reach you, call 020 3621 8527 or fill in the enquiry form and we will confirm."
       }
     },
     {
@@ -213,18 +213,13 @@
     @media (max-width: 640px) {
 
       /* Headings on mobile: prevent overflow, awkward line-breaks, and distortion */
-      h1,
-      [style*="clamp(46px"] {
+      h1, [style*="clamp(46px"] {
         font-size: clamp(32px, 8vw, 42px) !important;
         line-height: 1.15 !important;
         word-wrap: break-word;
       }
 
-      h2,
-      .gal-title,
-      .tsm-title,
-      [style*="clamp(34px"],
-      [style*="clamp(40px"] {
+      h2, .gal-title, .tsm-title, [style*="clamp(34px"], [style*="clamp(40px"] {
         font-size: clamp(26px, 6.5vw, 32px) !important;
         line-height: 1.2 !important;
         word-wrap: break-word;
@@ -369,34 +364,25 @@
        button escaped the 70px bar. Everything below scales the bar down and
        lets it grow in height rather than overflow. */
     @media (max-width: 767px) {
-      #nav>div {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-      }
+      #nav > div { padding-left: 16px !important; padding-right: 16px !important; }
 
-      #nav>div>div {
+      #nav > div > div {
         height: auto !important;
         min-height: 58px;
         padding: 9px 0;
         gap: 10px;
       }
 
-      #nav a[href="#"] {
-        gap: 9px !important;
-        min-width: 0;
-      }
+      #nav a[href="#"] { gap: 9px !important; min-width: 0; }
+      #nav a[href="#"] img { height: 32px !important; }
 
-      #nav a[href="#"] img {
-        height: 32px !important;
-      }
-
-      #nav a[href="#"]>div>div:first-child {
+      #nav a[href="#"] > div > div:first-child {
         font-size: 15px !important;
         line-height: 1.2 !important;
         white-space: nowrap;
       }
 
-      #nav a[href="#"]>div>div:last-child {
+      #nav a[href="#"] > div > div:last-child {
         font-size: 9.5px !important;
         letter-spacing: 1px !important;
         white-space: nowrap;
@@ -410,24 +396,17 @@
       }
 
       /* Hero clears the shorter bar */
-      #ag-hero {
-        padding-top: 86px !important;
-      }
+      #ag-hero { padding-top: 86px !important; }
     }
 
     /* Very narrow phones */
     @media (max-width: 380px) {
 
-      h1,
-      [style*="clamp(46px"] {
+      h1, [style*="clamp(46px"] {
         font-size: 28px !important;
       }
 
-      h2,
-      .gal-title,
-      .tsm-title,
-      [style*="clamp(34px"],
-      [style*="clamp(40px"] {
+      h2, .gal-title, .tsm-title, [style*="clamp(34px"], [style*="clamp(40px"] {
         font-size: 24px !important;
       }
 
@@ -443,17 +422,9 @@
         font-size: 13px !important;
       }
 
-      #nav a[href="#"]>div>div:first-child {
-        font-size: 14px !important;
-      }
-
-      #nav a[href="#"]>div>div:last-child {
-        font-size: 9px !important;
-      }
-
-      #nav a[href="#"] img {
-        height: 28px !important;
-      }
+      #nav a[href="#"] > div > div:first-child { font-size: 14px !important; }
+      #nav a[href="#"] > div > div:last-child { font-size: 9px !important; }
+      #nav a[href="#"] img { height: 28px !important; }
     }
   </style>
 </head>
@@ -461,8 +432,7 @@
 <body class="min-h-screen bg-white">
 
   <!-- NAV -->
-  <nav id="nav"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#faf8f4] border-b border-[#e0ded4]">
+  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#faf8f4] border-b border-[#e0ded4]">
     <div class="max-w-[1120px] mx-auto px-6">
       <div class="flex items-center justify-between h-[70px]">
         <a href="#" class="flex items-center gap-3">
@@ -492,12 +462,7 @@
 
   <!-- HERO -->
   <style>
-    #ag-hero,
-    #ag-hero * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    #ag-hero, #ag-hero * { box-sizing: border-box; margin: 0; padding: 0; }
 
     #ag-hero {
       --h-ink: #1c2b26;
@@ -515,19 +480,9 @@
       overflow: hidden;
     }
 
-    #ag-hero a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    #ag-hero ul {
-      list-style: none;
-    }
-
-    #ag-hero img {
-      max-width: 100%;
-      display: block;
-    }
+    #ag-hero a { text-decoration: none; color: inherit; }
+    #ag-hero ul { list-style: none; }
+    #ag-hero img { max-width: 100%; display: block; }
 
     #ag-hero .h-inner {
       max-width: 1120px;
@@ -563,8 +518,7 @@
 
     #ag-hero .h-kicker::before {
       content: '';
-      width: 7px;
-      height: 7px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--h-green);
       flex-shrink: 0;
@@ -620,61 +574,34 @@
       box-shadow: 0 8px 28px rgba(45, 106, 79, 0.3);
     }
 
-    #ag-hero .h-call {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    #ag-hero .h-call { display: flex; align-items: center; gap: 12px; }
 
     #ag-hero .h-call-icon {
-      width: 46px;
-      height: 46px;
+      width: 46px; height: 46px;
       border-radius: 50%;
       background: var(--h-tint);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
       color: var(--h-green-dark);
     }
 
-    #ag-hero .h-call-label {
-      font-size: 18px;
-      color: var(--h-grey);
-      line-height: 1.3;
-    }
-
-    #ag-hero .h-call-number {
-      font-size: 21px;
-      font-weight: 700;
-    }
+    #ag-hero .h-call-label { font-size: 18px; color: var(--h-grey); line-height: 1.3; }
+    #ag-hero .h-call-number { font-size: 21px; font-weight: 700; }
 
     #ag-hero .h-checks {
-      display: flex;
-      flex-wrap: wrap;
+      display: flex; flex-wrap: wrap;
       gap: 12px 26px;
       margin-bottom: 26px;
     }
 
     #ag-hero .h-checks li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 19px;
-      font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 19px; font-weight: 500;
     }
 
-    #ag-hero .h-checks svg {
-      width: 18px;
-      height: 18px;
-      color: var(--h-green);
-      flex-shrink: 0;
-    }
+    #ag-hero .h-checks svg { width: 18px; height: 18px; color: var(--h-green); flex-shrink: 0; }
 
-    #ag-hero .h-divider {
-      border-top: 1px solid var(--h-line);
-      margin-bottom: 24px;
-    }
+    #ag-hero .h-divider { border-top: 1px solid var(--h-line); margin-bottom: 24px; }
 
     #ag-hero .h-trust {
       display: grid;
@@ -682,48 +609,16 @@
       gap: 18px 24px;
     }
 
-    #ag-hero .h-trust-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-    }
+    #ag-hero .h-trust-item { display: flex; align-items: flex-start; gap: 11px; }
+    #ag-hero .h-trust-item > svg { width: 22px; height: 22px; color: var(--h-green); flex-shrink: 0; margin-top: 2px; }
+    #ag-hero .h-trust-item strong { display: block; font-size: 19px; font-weight: 700; line-height: 1.3; }
+    #ag-hero .h-trust-item span { font-size: 17px; color: var(--h-grey); }
 
-    #ag-hero .h-trust-item>svg {
-      width: 22px;
-      height: 22px;
-      color: var(--h-green);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    #ag-hero .h-trust-item strong {
-      display: block;
-      font-size: 19px;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    #ag-hero .h-trust-item span {
-      font-size: 17px;
-      color: var(--h-grey);
-    }
-
-    #ag-hero .h-stars {
-      display: flex;
-      gap: 2px;
-      margin-bottom: 3px;
-    }
-
-    #ag-hero .h-stars svg {
-      width: 16px;
-      height: 16px;
-      color: #2a9d5c;
-    }
+    #ag-hero .h-stars { display: flex; gap: 2px; margin-bottom: 3px; }
+    #ag-hero .h-stars svg { width: 16px; height: 16px; color: #2a9d5c; }
 
     /* media column */
-    #ag-hero .h-media {
-      position: relative;
-    }
+    #ag-hero .h-media { position: relative; }
 
     /* The disc was 78% of the column and sat entirely behind a photo that
        fills 100% of it, so almost none of it was visible. Now it is wider than
@@ -731,16 +626,15 @@
     #ag-hero .h-glow {
       position: absolute;
       z-index: 0;
-      top: 47%;
-      left: 56%;
+      top: 47%; left: 56%;
       width: 124%;
       aspect-ratio: 1;
       transform: translate(-50%, -50%);
       background: radial-gradient(circle,
-          #d6ebe0 0%,
-          #e4f2ea 52%,
-          rgba(228, 242, 234, 0.55) 72%,
-          rgba(228, 242, 234, 0) 78%);
+        #d6ebe0 0%,
+        #e4f2ea 52%,
+        rgba(228, 242, 234, 0.55) 72%,
+        rgba(228, 242, 234, 0) 78%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -748,8 +642,7 @@
     #ag-hero .h-ring {
       position: absolute;
       z-index: 0;
-      top: 47%;
-      left: 56%;
+      top: 47%; left: 56%;
       width: 108%;
       aspect-ratio: 1;
       transform: translate(-50%, -50%);
@@ -775,11 +668,7 @@
       box-shadow: 0 24px 60px -20px rgba(28, 43, 38, 0.26);
     }
 
-    #ag-hero .h-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    #ag-hero .h-photo img { width: 100%; height: 100%; object-fit: cover; }
 
     #ag-hero .h-card {
       position: absolute;
@@ -791,91 +680,43 @@
     }
 
     #ag-hero .h-quote {
-      top: -6%;
-      right: -5%;
+      top: -6%; right: -5%;
       max-width: 262px;
-      display: flex;
-      gap: 11px;
-      align-items: flex-start;
+      display: flex; gap: 11px; align-items: flex-start;
     }
 
     #ag-hero .h-avatar {
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       border-radius: 50%;
       background: var(--h-green-dark);
       color: #ffffff;
-      font-size: 15px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 15px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
 
-    #ag-hero .h-quote p {
-      font-size: 17px;
-      font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 6px;
-    }
-
-    #ag-hero .h-quote-meta {
-      font-size: 15px;
-      color: var(--h-grey);
-    }
-
-    #ag-hero .h-quote .h-stars svg {
-      width: 13px;
-      height: 13px;
-    }
+    #ag-hero .h-quote p { font-size: 17px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    #ag-hero .h-quote-meta { font-size: 15px; color: var(--h-grey); }
+    #ag-hero .h-quote .h-stars svg { width: 13px; height: 13px; }
 
     #ag-hero .h-project {
-      bottom: -7%;
-      right: 8%;
-      display: flex;
-      align-items: center;
-      gap: 13px;
+      bottom: -7%; right: 8%;
+      display: flex; align-items: center; gap: 13px;
     }
 
     #ag-hero .h-project-thumb {
-      width: 46px;
-      height: 46px;
-      border-radius: 9px;
-      overflow: hidden;
-      flex-shrink: 0;
+      width: 46px; height: 46px;
+      border-radius: 9px; overflow: hidden; flex-shrink: 0;
     }
 
-    #ag-hero .h-project-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    #ag-hero .h-project-label {
-      font-size: 15px;
-      color: var(--h-grey);
-      margin-bottom: 2px;
-    }
-
-    #ag-hero .h-project-title {
-      font-size: 17px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    #ag-hero .h-project-title svg {
-      width: 14px;
-      height: 14px;
-      color: var(--h-green);
-    }
+    #ag-hero .h-project-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    #ag-hero .h-project-label { font-size: 15px; color: var(--h-grey); margin-bottom: 2px; }
+    #ag-hero .h-project-title { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 7px; }
+    #ag-hero .h-project-title svg { width: 14px; height: 14px; color: var(--h-green); }
 
     #ag-hero .h-scribble {
       position: absolute;
-      bottom: -18%;
-      right: -1%;
+      bottom: -18%; right: -1%;
       z-index: 2;
       font-style: italic;
       font-size: 16px;
@@ -885,74 +726,25 @@
     }
 
     @media (max-width: 900px) {
-      #ag-hero {
-        padding: 92px 24px 56px;
-      }
-
-      #ag-hero .h-inner {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-
+      #ag-hero { padding: 92px 24px 56px; }
+      #ag-hero .h-inner { grid-template-columns: 1fr; gap: 36px; }
       /* Keep the halo tight to the photo once stacked, or it bleeds into
          the copy below. */
-      #ag-hero .h-glow {
-        width: 104%;
-        top: 50%;
-        left: 50%;
-      }
-
-      #ag-hero .h-ring {
-        width: 96%;
-        top: 50%;
-        left: 50%;
-      }
-
-      #ag-hero .h-media {
-        order: -1;
-      }
-
-      #ag-hero .h-quote {
-        top: 12px;
-        right: 12px;
-        max-width: 232px;
-      }
-
-      #ag-hero .h-project {
-        bottom: 12px;
-        right: 12px;
-      }
-
-      #ag-hero .h-scribble {
-        display: none;
-      }
+      #ag-hero .h-glow { width: 104%; top: 50%; left: 50%; }
+      #ag-hero .h-ring { width: 96%; top: 50%; left: 50%; }
+      #ag-hero .h-media { order: -1; }
+      #ag-hero .h-quote { top: 12px; right: 12px; max-width: 232px; }
+      #ag-hero .h-project { bottom: 12px; right: 12px; }
+      #ag-hero .h-scribble { display: none; }
     }
 
     @media (max-width: 560px) {
-      #ag-hero .h-quote {
-        display: none;
-      }
-
-      #ag-hero .h-project-thumb {
-        display: none;
-      }
-
-      #ag-hero .h-project {
-        padding: 10px 13px;
-      }
-
-      #ag-hero .h-trust {
-        gap: 16px 14px;
-      }
-
-      #ag-hero .h-btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      #ag-hero .h-cta-row {
-        gap: 16px;
-      }
+      #ag-hero .h-quote { display: none; }
+      #ag-hero .h-project-thumb { display: none; }
+      #ag-hero .h-project { padding: 10px 13px; }
+      #ag-hero .h-trust { gap: 16px 14px; }
+      #ag-hero .h-btn { width: 100%; justify-content: center; }
+      #ag-hero .h-cta-row { gap: 16px; }
     }
   </style>
 
@@ -1022,21 +814,11 @@
           <div class="h-trust-item">
             <div>
               <div class="h-stars">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
               </div>
               <strong>5.0 on Google</strong>
               <span>51 five-star reviews</span>
@@ -1092,21 +874,11 @@
           <span class="h-avatar" aria-hidden="true">IT</span>
           <div>
             <div class="h-stars">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-              </svg>
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-              </svg>
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-              </svg>
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-              </svg>
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
-              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
             </div>
             <p>&ldquo;Very well organised from start to finish. The installer did a great job.&rdquo;</p>
             <div class="h-quote-meta">Ian Thomas Day &middot; Google Review</div>
@@ -1320,8 +1092,7 @@
             <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
                 class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>Walk-in shower / wet room system</li>
             <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
-                class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>Underfloor heating (inc. Warmup system)
-            </li>
+                class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>Underfloor heating (inc. Warmup system)</li>
             <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
                 class="text-[#95d5b2] font-bold flex-shrink-0 mt-0.5">✦</span>Built-in shower niche</li>
             <li class="flex items-start gap-2.5 text-[22px] text-white font-semibold"><span
@@ -1465,6 +1236,43 @@
 
     #gal-section .gal-tile:hover .gal-img {
       transform: scale(1.05);
+    }
+
+    /* Area label, bottom right. Deliberately area level and no more
+       precise: these are clients' homes. */
+    #gal-section .gal-place {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(20, 38, 30, 0.82);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      padding: 6px 11px;
+      border-radius: 6px;
+    }
+
+    #gal-section .gal-place::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #95d5b2;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 560px) {
+      #gal-section .gal-place {
+        font-size: 13px;
+        padding: 5px 9px;
+        bottom: 9px;
+        right: 9px;
+      }
     }
 
     #gal-section .gal-count {
@@ -1643,102 +1451,120 @@
         <span class="gal-kicker">Our Work</span>
         <h2 class="gal-title">Recent London Projects</h2>
         <div class="gal-rule"><i></i><b></b><i></i></div>
-        <p class="gal-subtitle">Every bathroom is different. Every project is managed with the same level of care,
-          precision and personal attention.</p>
+        <p class="gal-subtitle">Recent work across eight London boroughs, from Croydon to Redbridge. Every bathroom is
+          different. Every project is managed with the same level of care and personal attention.</p>
       </div>
 
       <div class="gal-grid">
 
         <div class="gal-tile"
           data-set="images/new-bathroom/full/Project-01-bathroom-01-image-01.webp,images/new-bathroom/full/Project-01-bathroom-01-image-02.webp,images/new-bathroom/full/Project-01-bathroom-01-image-03.webp,images/new-bathroom/full/Project-01-bathroom-01-image-04.webp,images/new-bathroom/full/Project-01-bathroom-01-image-05.webp"
-          data-label="Bathroom renovation 1 of 10">
+          data-label="Bathroom renovation in Aldersbrook">
           <img src="images/new-bathroom/low/Project-01-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Aldersbrook, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-count">5 photos</div>
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Aldersbrook</div>
         </div>
 
         <div class="gal-tile"
           data-set="images/new-bathroom/full/Project-02-bathroom-01-image-01.webp,images/new-bathroom/full/Project-02-bathroom-01-image-02.webp,images/new-bathroom/full/Project-02-bathroom-02-image-01.webp"
-          data-label="Bathroom renovation 2 of 10">
+          data-label="Bathroom renovation in Little Venice">
           <img src="images/new-bathroom/low/Project-02-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Little Venice, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-count">3 photos</div>
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Little Venice</div>
         </div>
 
         <div class="gal-tile"
           data-set="images/new-bathroom/full/Project-03-bathroom-01-image-01.webp,images/new-bathroom/full/Project-03-bathroom-01-image-02.webp"
-          data-label="Bathroom renovation 3 of 10">
+          data-label="Bathroom renovation in Canning Town">
           <img src="images/new-bathroom/low/Project-03-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Canning Town, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-count">2 photos</div>
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Canning Town</div>
         </div>
 
         <div class="gal-tile" data-set="images/new-bathroom/full/Project-04-bathroom-01-image-01.webp"
-          data-label="Bathroom renovation 4 of 10">
+          data-label="Bathroom renovation in Marylebone">
           <img src="images/new-bathroom/low/Project-04-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Marylebone, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Marylebone</div>
         </div>
 
         <div class="gal-tile" data-set="images/new-bathroom/full/Project-05-bathroom-01-image-01.webp"
-          data-label="Bathroom renovation 5 of 10">
+          data-label="Bathroom renovation in Myatt's Fields">
           <img src="images/new-bathroom/low/Project-05-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Myatt's Fields, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Myatt's Fields</div>
         </div>
 
         <div class="gal-tile"
           data-set="images/new-bathroom/full/Project-06-bathroom-01-image-01.webp,images/new-bathroom/full/Project-06-bathroom-01-image-02.webp,images/new-bathroom/full/Project-06-bathroom-02-image-01.webp,images/new-bathroom/full/Project-06-bathroom-02-image-02.webp,images/new-bathroom/full/Project-06-bathroom-03-image-01.webp,images/new-bathroom/full/Project-06-bathroom-03-image-02.webp"
-          data-label="Bathroom renovation 6 of 10">
+          data-label="Bathroom renovation in Hounslow">
           <img src="images/new-bathroom/low/Project-06-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Hounslow, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-count">6 photos</div>
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Hounslow</div>
         </div>
 
         <div class="gal-tile"
           data-set="images/new-bathroom/full/Project-07-bathroom-01-image-01.webp,images/new-bathroom/full/Project-07-bathroom-01-image-02.webp"
-          data-label="Bathroom renovation 7 of 10">
+          data-label="Bathroom renovation in Walworth">
           <img src="images/new-bathroom/low/Project-07-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Walworth, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-count">2 photos</div>
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Walworth</div>
         </div>
 
         <div class="gal-tile"
           data-set="images/new-bathroom/full/Project-08-bathroom-01-image-01.webp,images/new-bathroom/full/Project-08-bathroom-01-image-02.webp,images/new-bathroom/full/Project-08-bathroom-01-image-03.webp,images/new-bathroom/full/Project-08-bathroom-02-image-01.webp,images/new-bathroom/full/Project-08-bathroom-02-image-02.webp"
-          data-label="Bathroom renovation 8 of 10">
+          data-label="Bathroom renovation in Poplar">
           <img src="images/new-bathroom/low/Project-08-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Poplar, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-count">5 photos</div>
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Poplar</div>
         </div>
 
         <div class="gal-tile"
           data-set="images/new-bathroom/full/Project-09-bathroom-01-image-01.webp,images/new-bathroom/full/Project-09-bathroom-01-image-02.webp"
-          data-label="Bathroom renovation 9 of 10">
+          data-label="Bathroom renovation in Croydon">
           <img src="images/new-bathroom/low/Project-09-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in Croydon, London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-count">2 photos</div>
           <div class="gal-overlay"><span>View Project</span></div>
+        
+          <div class="gal-place">Croydon</div>
         </div>
 
         <div class="gal-tile" data-set="images/new-bathroom/full/Project-10-bathroom-01-image-01.webp"
-          data-label="Bathroom renovation 10 of 10">
+          data-label="Bathroom renovation in London">
           <img src="images/new-bathroom/low/Project-10-bathroom-01-image-01.webp"
-            alt="Completed bathroom renovation by A&amp;G Renovations in London" class="gal-img" loading="lazy"
+            alt="Bathroom renovation completed by A&amp;G Renovations in London" class="gal-img" loading="lazy"
             decoding="async" width="600" height="800">
           <div class="gal-overlay"><span>View Project</span></div>
         </div>
@@ -1783,7 +1609,7 @@
 
       function render() {
         lbImg.src = set[idx];
-        lbImg.alt = 'Completed bathroom renovation by A&G Renovations in London';
+        lbImg.alt = label + ' by A&G Renovations, photo ' + (idx + 1) + ' of ' + set.length;
         lbCap.textContent = label + '   ' + (idx + 1) + ' / ' + set.length;
         var multi = set.length > 1;
         document.getElementById('gal-lb-prev').style.display = multi ? 'flex' : 'none';
@@ -2278,13 +2104,8 @@
       letter-spacing: 1px;
     }
 
-    #tsm-section .tsm-stars-google {
-      color: #fbbc04;
-    }
-
-    #tsm-section .tsm-stars-trustpilot {
-      color: #00b67a;
-    }
+    #tsm-section .tsm-stars-google { color: #fbbc04; }
+    #tsm-section .tsm-stars-trustpilot { color: #00b67a; }
 
     #tsm-section .tsm-rating-label {
       font-size: 17px;
@@ -2304,9 +2125,7 @@
       margin-top: 12px;
     }
 
-    #tsm-section .tsm-rating-box:hover .tsm-rating-link {
-      opacity: 1;
-    }
+    #tsm-section .tsm-rating-box:hover .tsm-rating-link { opacity: 1; }
 
     #tsm-lightbox {
       position: fixed;
@@ -2534,8 +2353,7 @@
                   d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             </div>
-            <p class="tsm-review-text">&ldquo;From the first consultation with Andrius, where he took the time to
-              understand exactly what we
+            <p class="tsm-review-text">&ldquo;From the first consultation with Andrius, where he took the time to understand exactly what we
               envisioned, to the completion of the project, I was confident we had made the perfect choice for our
               bathroom refurbishment. The entire team was exceptional. The result speaks for itself, the final
               finish is nothing short of magnificent.&rdquo;</p>
@@ -2616,8 +2434,7 @@
                   d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             </div>
-            <p class="tsm-review-text">&ldquo;We recently used Andrius and the team to install a new bathroom upstairs
-              and a shower room downstairs,
+            <p class="tsm-review-text">&ldquo;We recently used Andrius and the team to install a new bathroom upstairs and a shower room downstairs,
               and we're very pleased with the result. It was quite a challenging project in an old Victorian
               terrace, but the team were flexible, practical and committed to doing things properly rather than
               taking shortcuts. Our installer, Istvan, was particularly excellent.&rdquo;</p>
@@ -2750,13 +2567,10 @@
           target="_blank" rel="noopener noreferrer">
           <div class="tsm-rating-logo">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="#4285F4"
-                d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3.01h3.88c2.27-2.09 3.58-5.17 3.58-8.82z" />
-              <path fill="#34A853"
-                d="M12 24c3.24 0 5.96-1.08 7.94-2.91l-3.88-3.01c-1.08.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.28v3.11A12 12 0 0 0 12 24z" />
-              <path fill="#FBBC05" d="M5.29 14.28a7.2 7.2 0 0 1 0-4.56V6.61H1.28a12 12 0 0 0 0 10.78l4.01-3.11z" />
-              <path fill="#EA4335"
-                d="M12 4.75c1.76 0 3.34.61 4.59 1.8l3.44-3.44C17.96 1.19 15.24 0 12 0A12 12 0 0 0 1.28 6.61l4.01 3.11C6.23 6.86 8.88 4.75 12 4.75z" />
+              <path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3.01h3.88c2.27-2.09 3.58-5.17 3.58-8.82z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.94-2.91l-3.88-3.01c-1.08.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.28v3.11A12 12 0 0 0 12 24z"/>
+              <path fill="#FBBC05" d="M5.29 14.28a7.2 7.2 0 0 1 0-4.56V6.61H1.28a12 12 0 0 0 0 10.78l4.01-3.11z"/>
+              <path fill="#EA4335" d="M12 4.75c1.76 0 3.34.61 4.59 1.8l3.44-3.44C17.96 1.19 15.24 0 12 0A12 12 0 0 0 1.28 6.61l4.01 3.11C6.23 6.86 8.88 4.75 12 4.75z"/>
             </svg>
             <span class="tsm-wordmark">Google</span>
           </div>
@@ -2769,8 +2583,7 @@
           rel="noopener noreferrer">
           <div class="tsm-rating-logo">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="#00b67a"
-                d="M12 0l3.09 8.26H24l-7.2 5.11L19.54 24 12 18.4 4.46 24l2.74-10.63L0 8.26h8.91L12 0z" />
+              <path fill="#00b67a" d="M12 0l3.09 8.26H24l-7.2 5.11L19.54 24 12 18.4 4.46 24l2.74-10.63L0 8.26h8.91L12 0z"/>
             </svg>
             <span class="tsm-wordmark">Trustpilot</span>
           </div>
@@ -3494,7 +3307,8 @@
 
                 <!-- Honeypot. Hidden from people, irresistible to bots.
                      Any submission with this filled is silently discarded. -->
-                <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+                <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"
+                  aria-hidden="true">
                   <label for="ag-company">Company</label>
                   <input type="text" id="ag-company" name="company" tabindex="-1" autocomplete="off">
                 </div>
@@ -3642,9 +3456,10 @@
               class="text-[#2d6a4f] text-[26px] font-light flex-shrink-0 ml-4 transition-transform group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 pb-6 text-[24px] text-[#47524d] leading-relaxed border-t border-[#e0ded4] pt-4">
-            We work across all areas of London and the surrounding regions. Our team is based in East London and
-            regularly completes projects across Central, North, South, East and West London. If you are unsure whether
-            we cover your area, call us on 020 3621 8527 or fill in the enquiry form and we will confirm.
+            We cover Greater London inside the M25. Recent bathrooms include Marylebone and Little Venice in the
+            west, Canning Town and Poplar in the east, Walworth and Myatt's Fields in the south, Aldersbrook in the
+            north east, plus Hounslow and Croydon. If you are unsure whether we reach you, call 020 3621 8527 or fill
+            in the enquiry form and we will confirm.
           </div>
         </details>
 
@@ -3670,13 +3485,11 @@
 
   <!-- FINAL CTA -->
   <section class="bg-[#24483a] py-28 text-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(149,213,178,0.07)_0%,transparent_70%)]">
-    </div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(149,213,178,0.07)_0%,transparent_70%)]"></div>
     <div class="max-w-[1120px] mx-auto px-6 relative z-10">
       <h2 class="text-white max-w-[660px] mx-auto mb-4 font-normal italic" style="font-size:clamp(40px, 5vw, 64px)">
         &ldquo;Do It Once. Do It Right.&rdquo;</h2>
-      <p class="text-white/55 max-w-[520px] mx-auto mb-11 text-[27px]">51 five-star reviews on Google. A decade of
-        London
+      <p class="text-white/55 max-w-[520px] mx-auto mb-11 text-[27px]">51 five-star reviews on Google. A decade of London
         renovations. A team that genuinely cares about the result, and a guarantee to prove it.</p>
       <div class="flex justify-center gap-4 flex-wrap mb-9">
         <a href="#enquiry"

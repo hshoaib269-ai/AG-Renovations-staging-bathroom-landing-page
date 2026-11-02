@@ -3564,10 +3564,35 @@
 
   <!-- ── SCRIPT (replace the existing agSubmitForm script) ─── -->
   <script>
-    /* Live lead endpoint. If this ever changes, the form silently stops
-       delivering and the Ads conversion stops firing with it (by design:
-       the conversion only fires on a confirmed 2xx from this URL). */
-    const AG_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/27822859/4bkdgjs/';
+    // The form posts to two endpoints at once, each on its own: Zapier (which
+    // stays) and the app's intakeWebEnquiry function, alongside it. An endpoint
+    // that isn't an https:// address (empty, or the placeholder) is skipped.
+    // STAGING: empty. Staging must never reach the live Zap, because the live
+    // Zap creates real enquiries for the office. Production sets it to the
+    // live Zap's catch hook.
+    const ZAPIER_ENDPOINT = '';
+    // Live address of the app's intakeWebEnquiry function: replace before going live.
+    // PLACEHOLDER: until it's replaced, it's skipped.
+    const INTAKE_ENDPOINT = 'REPLACE_WITH_LIVE_intakeWebEnquiry_URL';
+
+    // Ad tracking for this visit: utm_* and gclid from the page address.
+    // The first non-empty value seen in the visit wins and is kept in
+    // sessionStorage, so it survives in-page navigation before the form is sent.
+    const AG_TRACKING_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+    const AG_TRACKING = (function () {
+      var stored = {};
+      try { stored = JSON.parse(sessionStorage.getItem('ag_tracking') || '{}') || {}; } catch (e) { stored = {}; }
+      var params = null;
+      try { params = new URLSearchParams(window.location.search); } catch (e) { params = null; }
+      var out = {};
+      AG_TRACKING_KEYS.forEach(function (k) {
+        var kept = typeof stored[k] === 'string' ? stored[k] : '';
+        var fromUrl = params ? (params.get(k) || '').trim().slice(0, 200) : '';
+        out[k] = kept || fromUrl;
+      });
+      try { sessionStorage.setItem('ag_tracking', JSON.stringify(out)); } catch (e) { /* storage blocked */ }
+      return out;
+    })();
 
     async function agSubmitForm() {
       const btn = document.getElementById('ag-submit');
@@ -3610,44 +3635,58 @@
       btn.disabled = true;
       label.textContent = 'Sending…';
 
+      // The same fields to both: the form, the ad tracking and the honeypot.
+      const fields = Object.assign({
+        full_name, email, phone, address, city, post_code, message,
+        lead_source: 'Google Ads Landing Page',
+        project_type: 'Bathroom Renovation',
+        company: document.getElementById('ag-company').value
+      }, AG_TRACKING);
+
+      // The first confirmed delivery (a 2xx from either endpoint) shows the
+      // success message and fires the conversion, exactly once. The other
+      // request carries on regardless (keepalive, so it still completes if the
+      // person leaves the page).
       var delivered = false;
-      try {
-        const res = await fetch(AG_WEBHOOK_URL, {
-          method: 'POST',
-          body: new URLSearchParams({
-            full_name, email, phone, address, city, post_code, message,
-            lead_source: 'Google Ads Landing Page',
-            project_type: 'Bathroom Renovation'
-          })
-        });
-        delivered = res.ok;
-      } catch (err) {
-        console.warn('Zapier webhook failed:', err);
-        delivered = false;
+      function onDelivered() {
+        if (delivered) return;
+        delivered = true;
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17907613995/rTgGCKThs7gcEKuCgttC',
+            'value': 1.0,
+            'currency': 'GBP'
+          });
+          gtag('event', 'generate_lead');
+        }
+        document.getElementById('ag-form').style.display = 'none';
+        document.getElementById('ag-success').classList.add('agf-visible');
+        document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
-      // The conversion fires ONLY on a confirmed delivery. If the Zap is off or
-      // the request fails, we must not report a lead that does not exist, and
-      // the person must not be told everything is fine.
+      // In parallel and independent: a slow or failed call to one never
+      // blocks or cancels the other. URLSearchParams body =
+      // application/x-www-form-urlencoded (a CORS "simple" request, no
+      // preflight, no credentials).
+      const endpoints = [ZAPIER_ENDPOINT, INTAKE_ENDPOINT].filter(function (url) { return /^https:\/\//.test(url); });
+      const results = await Promise.allSettled(endpoints.map(function (url) {
+        return fetch(url, { method: 'POST', body: new URLSearchParams(fields), keepalive: true }).then(function (res) {
+          if (!res.ok) throw new Error(url + ' answered ' + res.status);
+          onDelivered();
+        });
+      }));
+      results.forEach(function (r) {
+        if (r.status === 'rejected') console.warn('Enquiry endpoint failed:', r.reason);
+      });
+
+      // Only if both failed (or none is set): we must not report a lead that
+      // does not exist, and the person must not be told everything is fine.
       if (!delivered) {
-        return showError(
+        showError(
           'Sorry, we could not send your enquiry just now. Please call us on 020 3621 8527 ' +
           'and we will book your free site visit straight away.'
         );
       }
-
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17907613995/rTgGCKThs7gcEKuCgttC',
-          'value': 1.0,
-          'currency': 'GBP'
-        });
-        gtag('event', 'generate_lead');
-      }
-
-      document.getElementById('ag-form').style.display = 'none';
-      document.getElementById('ag-success').classList.add('agf-visible');
-      document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   </script>
   <!-- ── END SCRIPT ─────────────────────────────────────────────── -->

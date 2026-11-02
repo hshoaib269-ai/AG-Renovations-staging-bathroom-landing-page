@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-  <!-- Google Tag Manager -->
+  <!-- ==========================================================================
+       STAGING: Google Tag Manager is DISABLED. Restore this block for production.
+
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
@@ -11,10 +13,14 @@
         j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-KGSBLMTC');</script>
-  <!-- End Google Tag Manager -->
+
+       ========================================================================== -->
   <meta charset="UTF-8">
+  <!-- STAGING ONLY: remove both lines below before deploying to production. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bathroom Renovation London | A&G Renovations (Est. 2014)</title>
+  <title>[STAGING] Bathroom Renovation London | A&G Renovations (Est. 2014)</title>
   <meta name="description"
     content="London's trusted bathroom renovation specialists since 2014. In-house team, dedicated project coordinator, 12-month guarantee. Free site visit from Syed.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +30,10 @@
     rel="stylesheet">
   <link rel="stylesheet" href="dist/output.css">
 
-  <!-- Google tag (gtag.js) -->
+  <!-- ==========================================================================
+       STAGING: GA4 + Google Ads are DISABLED so test traffic and test form
+       submissions do not pollute reporting. Restore for production.
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JP1K1CL1BF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -33,9 +42,11 @@
     gtag('config', 'G-JP1K1CL1BF');
     gtag('config', 'AW-17907613995');
   </script>
-  <!-- NOTE: GTM (GTM-KGSBLMTC) and gtag both load GA4 for G-JP1K1CL1BF.
-       If the GTM container ALSO has a GA4 config tag for that property,
-       sessions and events are counted twice. Worth checking in GTM. -->
+
+       NOTE FOR PRODUCTION: GTM (GTM-KGSBLMTC) and gtag both load GA4 for
+       G-JP1K1CL1BF. Confirm GTM is not also firing GA4 for that property or
+       sessions are counted twice.
+       ========================================================================== -->
 
   <!-- Click-to-call: the old gtag_report_conversion() helper has been removed.
        It fired label xWGaCOar7rAcEKuCgttC on every tel: click while the
@@ -167,6 +178,10 @@
   ]
 }
 </script>
+  <!-- ==========================================================================
+       STAGING: Microsoft Clarity is DISABLED so test sessions are not recorded
+       against the live project. Restore for production.
+
   <script type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -174,6 +189,8 @@
       y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "xqdiexp3bu");
   </script>
+
+       ========================================================================== -->
 
   <!-- Mobile refinements: loaded after dist/output.css so it wins the cascade -->
   <style>
@@ -3699,6 +3716,9 @@
       });
     });
   </script>
+  <!-- ==========================================================================
+       STAGING: phone-click conversion DISABLED. Restore for production.
+
   <script>
     document.addEventListener('click', function (e) {
       if (window.location.href.includes('bathroom.ag-renovations.co.uk') && e.target.closest('[href^="tel:"]')) {
@@ -3706,6 +3726,8 @@
       }
     });
   </script>
+
+       ========================================================================== -->
 </body>
 
 </html>
